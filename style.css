@@ -1,0 +1,517 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+/* Garantir que a página não role horizontalmente */
+html, body {
+    overflow-x: hidden; /* Desativa o scroll horizontal */
+    width: 100%; /* Garante que o body ocupe 100% da largura */
+    max-width: 100%; /* Impede que o body ultrapasse a largura da tela */
+}
+
+/* Garantir que todos os elementos respeitem a largura da tela */
+* {
+    box-sizing: border-box; /* Garante que padding e bordas não aumentem a largura */
+}
+
+/* Verificar elementos específicos que podem causar overflow */
+img, .swiper-container, .hero, .servicos, .produtos, .depoimentos, .avaliacao {
+    max-width: 100%; /* Garante que nenhum elemento ultrapasse a largura da tela */
+}
+
+/* Ajustar o carrossel para telas pequenas */
+#depoimentos-carrossel {
+    width: 100%;
+    max-width: 800px; /* Ajuste conforme necessário */
+    margin: 0 auto; /* Centraliza o carrossel */
+    padding: 0 1rem; /* Adiciona um pequeno padding nas laterais */
+}
+/* Estilos para o menu hambúrguer */
+.menu-icon {
+    display: none; /* Oculta o ícone do menu em telas grandes */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin-left: 1rem;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #FFD700; /* Dourado para destaque */
+}
+
+/* Estilos para telas pequenas */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Exibe o ícone do menu em telas pequenas */
+    }
+
+    .nav-list {
+        display: none; /* Oculta o menu por padrão */
+        flex-direction: column;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background-color: #4B0082;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list.active {
+        display: flex; /* Exibe o menu quando a classe 'active' está presente */
+    }
+
+    .nav-list li {
+        margin: 1rem 0;
+    }
+}
+header {
+    background-color: #4B0082; /* Roxo Festa da Uva */
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo img {
+    padding-top: 5px;
+    height: 45px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FFD700; /* Dourado para destaque */
+}
+
+.hero {
+    background: url('src/capa.png') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(54, 54, 54, 0.5); /* Overlay escuro */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.hero-content h3 {
+    font-size:40px;
+    margin-top: -1rem;
+    color: #ffffff;
+    
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+
+.hero-content p {
+    font-size: 15px;
+    margin-bottom: 2rem;
+    padding: 10px;
+    animation: slideIn 2s ease-in-out;
+}
+
+.hero-content .btn {
+    background-color: #0bc00b; /* Dourado para destaque */
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2.5s ease-in-out;
+}
+.btn {
+    background-color: #4B0082; /* Dourado para destaque */
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2.5s ease-in-out;
+}
+.hero-content .btn:hover {
+    background-color: #e6b800;
+}
+
+.servicos, .produtos {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.servicos h2, .produtos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #4B0082;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.servicos-grid, .produtos-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.servico, .produto {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+.servico:hover, .produto:hover {
+    transform: translateY(-10px);
+}
+
+.servico img, .produto img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.servico h3, .produto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4B0082;
+}
+
+.servico p, .produto p {
+    font-size: 1rem;
+    color: #666;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    font-size: 10px;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    padding: 10px;
+    border-radius: 100%;
+    transition: transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-btn i {
+    font-size: 35px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #4B0082;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 1rem 0;
+    }
+
+    .servicos-grid, .produtos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servico, .produto {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.swiper-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.depoimento {
+    width: 100%;
+    max-width: 300px; /* Ajuste conforme necessário */
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/* Estilos para a Seção Depoimentos */
+.depoimentos {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.depoimentos h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #4B0082;
+}
+
+#depoimentos-carrossel {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.depoimento {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.depoimento img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.depoimento p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.depoimento span {
+    font-size: 0.9rem;
+    color: #4B0082;
+    font-weight: 600;
+}
+
+
+#depoimentos-carrossel .swiper-pagination-bullet-active {
+    background-color: #4B0082;
+}
+
+/* Estilos para a Seção Avaliação no Google */
+.avaliacao {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #4B0082;
+    color: #fff;
+}
+
+.avaliacao h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.avaliacao p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.avaliacao .btn {
+    background-color: #FFD700;
+    color: #333;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.avaliacao .btn:hover {
+    background-color: #e6b800;
+}
+
+/* Estilos do Swiper */
+
+.depoimentos .swiper-slide .depoimento img{
+    width: 50px;
+    height: 50px;
+}
+
+.depoimentos .swiper-slide .depoimento {
+    max-height: 300px;
+    min-height: 300px;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #4B0082;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #4B0082;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+    
+}
+
+.carousel-container {
+    background-color: #4B0082;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll 10s linear infinite;
+}
+
+.carousel-track img {
+    max-height: 55px;
+    width: auto;
+}
+
+/* Animação de rolagem contínua */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-20%);
+    }
+}
